@@ -27,6 +27,7 @@ public class MemorySimulator {
             int offset = vAddress % config.pageSize; // Calcula o deslocamento dentro da página
             int frame = pageTable.getFrame(vAddress, config, physicalMemory); // Obtém moldura
             int physicalAddress = frame * config.pageSize + offset; // Calcula endereço físico
+            String segment = config.getSegment(vAddress); // Obtém o segmento do endereço virtual
 
             writer.printf("Endereco Virtual: %d, Moldura: %d, Endereco Fisico: %d\n",
                     vAddress, frame, physicalAddress);
